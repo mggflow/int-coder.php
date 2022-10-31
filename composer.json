@@ -1,0 +1,21 @@
+{
+    "name": "mggflow/int-obfuscator",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MGGFLOW\\IntObfuscator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pavel Eliseev",
+            "email": "deusagnis@gmail.com",
+            "homepage": "https://mggflow.in",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+
+    }
+}
