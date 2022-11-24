@@ -2,15 +2,16 @@
 
 namespace Tests;
 
-use MGGFLOW\IntObfuscator\Obfuscator;
+use MGGFLOW\IntCoder\Code2Int;
+use MGGFLOW\IntCoder\Int2Code;
 use PHPUnit\Framework\TestCase;
 
 class ObfuscatorTest extends TestCase
 {
     public function testFull()
     {
-        $min = 23537;
-        $max = 2 ** 16;
+        $min = 3537;
+        $max = 2 ** 15;
         $alphabet = [
             'a', 'b', 'c', 'd',
             'e', 'f', 'g', 'h',
@@ -25,12 +26,13 @@ class ObfuscatorTest extends TestCase
         ];
         $codeLength = 8;
 
-        $obfs = new Obfuscator($min, $max, $alphabet, $codeLength);
+        $coder = new Int2Code($min, $max, $alphabet, $codeLength);
+        $decoder = new Code2Int($min, $max, $alphabet, $codeLength);
 
         $codes = [];
         for ($i = $min; $i <= $max; $i++) {
-            $code = $obfs->encode($i);
-            $decoded = $obfs->decode($code);
+            $code = $coder->encode($i);
+            $decoded = $decoder->decode($code);
 
             $this->assertEquals($i, $decoded);
             $this->assertEquals(strlen($code), $codeLength);

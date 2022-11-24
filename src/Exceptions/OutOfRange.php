@@ -1,6 +1,6 @@
 <?php
 
-namespace MGGFLOW\IntObfuscator\Exceptions;
+namespace MGGFLOW\IntCoder\Exceptions;
 
 class OutOfRange extends \Exception
 {
