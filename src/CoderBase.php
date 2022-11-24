@@ -16,6 +16,13 @@ class CoderBase
     protected int $serialNumber;
     protected int $codePosition;
 
+    /**
+     * @param int $minInt
+     * @param int $maxInt
+     * @param array $alphabet
+     * @param int $codeLength
+     * @throws FailedCodingUniqueness
+     */
     public function __construct(
         int   $minInt, int $maxInt,
         array $alphabet, int $codeLength
@@ -23,7 +30,7 @@ class CoderBase
     {
         $this->minInt = $minInt;
         $this->maxInt = $maxInt;
-        $this->alphabet = $alphabet;
+        $this->alphabet = array_unique($alphabet);
         $this->codeLength = $codeLength;
 
         $this->calcAlphabetAmount();;

@@ -11,6 +11,12 @@ class Code2Int extends CoderBase
     protected int $displacedAlphabetIndex;
     protected int $alphabetIndex;
 
+    /**
+     * Decode string code to integer.
+     * @param string $code
+     * @return int
+     * @throws WrongCodeLength
+     */
     public function decode(string $code): int
     {
         $this->createCodeArray($code);

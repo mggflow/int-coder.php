@@ -12,6 +12,12 @@ class Int2Code extends CoderBase
     protected int $alphabetIndex;
     protected int $displacedAlphabetIndex;
 
+    /**
+     * Encode integer to string code.
+     * @param int $number
+     * @return string
+     * @throws OutOfRange
+     */
     public function encode(int $number): string
     {
         $this->setNumber($number);
