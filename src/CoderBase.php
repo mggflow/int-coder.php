@@ -12,6 +12,7 @@ class CoderBase
     protected int $codeLength;
 
     protected int $alphabetAmount;
+    protected int $intRange;
     protected array $startCodePositions;
     protected int $serialNumber;
     protected int $codePosition;
@@ -35,6 +36,7 @@ class CoderBase
 
         $this->calcAlphabetAmount();;
         $this->checkCodingUniqueness();
+        $this->calcIntRange();
         $this->initStartPositions();
     }
 
@@ -50,18 +52,22 @@ class CoderBase
         }
     }
 
+    protected function calcIntRange() {
+        $this->intRange = $this->maxInt - $this->minInt;
+    }
+
     protected function initStartPositions()
     {
         $this->startCodePositions = [];
         for ($i = 0; $i < $this->codeLength; $i++) {
-            $this->startCodePositions[$i] = $i % $this->alphabetAmount;
+            $this->startCodePositions[$i] = (($i ** 2) + ($i * 3) + ($i % 2)) % $this->alphabetAmount;
         }
     }
 
     protected function mirrorSerialNumber()
     {
         if ($this->serialNumber % 2 == 1) {
-            $this->serialNumber = $this->maxInt - $this->minInt + 1 - $this->serialNumber;
+            $this->serialNumber = $this->intRange - $this->serialNumber + $this->intRange % 2;
         }
     }
 

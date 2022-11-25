@@ -24,7 +24,6 @@ class Code2Int extends CoderBase
         $this->setZeroSerialNumber();
 
         $this->fillSerialNumber();
-
         return $this->calcShiftedSerialNumber();
     }
 
@@ -50,7 +49,6 @@ class Code2Int extends CoderBase
         for ($this->resetCodePosition(); $this->codePositionAllowable(); $this->incCodePosition()) {
             $this->consumeBeforeLastSymbol();
         }
-
         $this->consumeLastSymbol();
 
         $this->mirrorSerialNumber();
@@ -106,13 +104,6 @@ class Code2Int extends CoderBase
     protected function calcShiftedSerialNumber(): int
     {
         return $this->minInt + $this->serialNumber;
-    }
-
-    protected function mirrorSerialNumber()
-    {
-        if ($this->serialNumber % 2 == 1) {
-            $this->serialNumber = $this->maxInt - $this->minInt + 1 - $this->serialNumber;
-        }
     }
 
     protected function findAlphabetIndex()
