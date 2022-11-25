@@ -41,6 +41,6 @@ echo "decoded number: " . $decNumber . "\n";
 
 Expected output:
 ```
-code: bcdefghijklm6kxu
+code: fkt2fs9qbwlams1u
 decoded number: 931781
 ```
